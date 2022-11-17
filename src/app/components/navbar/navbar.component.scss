@@ -1,0 +1,64 @@
+.myTeam{
+   background-color: white;
+   border:9px solid white;
+   border-radius:25px;
+   text-decoration: none;
+   padding-right: 10px;
+   font-size: 22px !important;
+   
+   color:black;
+
+}
+.nav-link {
+    font-size: 22px !important;
+    margin: 15px;
+  }
+  
+  .nav-link:hover{
+    cursor: pointer;
+    color: yellow !important;
+  }
+  
+  h1{
+    margin: 20px;
+  }
+  
+
+
+  
+  .pokeball::before {
+    content: url(https://img.icons8.com/ios/50/000000/pointer.png);
+    text-align: center;
+    display: block;
+    visibility: hidden;
+    -webkit-transition: visibility 0.1s ease-in-out;
+    -moz-transition: visibility 0.1s ease-in-out;
+    -o-transition: visibility 0.1s ease-in-out;
+    transition: visibility 0.1s ease-in-out;
+  }
+
+  .myTeam :hover{
+    cursor: pointer;
+    animation: wobble 0.5s;
+  }
+  
+  @keyframes wobble {
+    0% { transform: translate(1px, 1px) rotate(0deg); }
+    10% { transform: translate(-1px, -2px) rotate(-1deg); }
+    20% { transform: translate(-3px, 0px) rotate(1deg); }
+    30% { transform: translate(3px, 2px) rotate(0deg); }
+    40% { transform: translate(1px, -1px) rotate(1deg); }
+    50% { transform: translate(-1px, 2px) rotate(-1deg); }
+    60% { transform: translate(-3px, 1px) rotate(0deg); }
+    70% { transform: translate(3px, 1px) rotate(-1deg); }
+    80% { transform: translate(-1px, -1px) rotate(1deg); }
+    90% { transform: translate(1px, 2px) rotate(0deg); }
+    100% { transform: translate(1px, -2px) rotate(-1deg); }
+  }
+  
+
+
+
+
+
+  
