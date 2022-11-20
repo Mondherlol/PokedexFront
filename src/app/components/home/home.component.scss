@@ -3,11 +3,84 @@ width: 50%;
 border-radius: 50px;
 box-shadow: 10px 5px 5px grey;
 
+
 }
+.type{
+    display: inline-block;
+
+}
+
+
+.tagbox {
+    margin: 5px;
+    padding:6px;
+    padding-bottom: 10px;
+    padding-right: 8px;
+    border-radius: 25px;
+    font-size: 0.75rem;
+    border: 1px red solid;
+
+  }
 .btn-search{
     box-shadow: 10px 5px 5px grey;
 }
 .box-search{
     margin-top:100px;
 }
+.Feu {
+    border: 2px #EE8130 solid;
+}
+.Plante{
+    border:2px #7AC74C solid;
+}
+.Normal {
+    border:2px #A8A77A solid;
+}
+.Eau {
+    border:2px #6390F0 solid;
 
+}
+.Électrik {
+    border:2px #F7D02C solid;
+
+}
+.Glace {
+    border:2px #96D9D6 solid;
+}
+.Insecte {
+    border:2px #A6B91A solid;
+
+}
+.Combat {
+    border:2px #C22E28 solid;
+}
+.Sol {
+    border:2px #E2BF65 solid;
+}
+.Poison {
+    border:2px #A33EA1 solid;
+}
+.Vol {
+    border:2px #A98FF3 solid;
+}
+.Psy{
+    border:2px #F95587 solid;
+}
+.Roche {
+    border:2px #B6A136 solid;
+}
+.Spectre {
+    border:2px #735797 solid;
+}
+.Dragon {
+    border:2px #6F35FC solid;
+}
+.Ténèbres{
+    border:2px #705746 solid;
+}
+.Acier {
+    border:2px #B7B7CE solid;
+}
+.Fée {
+    border:2px #D685AD solid;
+}
