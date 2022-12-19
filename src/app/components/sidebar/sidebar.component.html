@@ -1,0 +1,85 @@
+
+  <main>
+    <div class="area"></div><nav class="main-menu">
+            <ul>
+                <li >
+                    <span  class="navbar-brand" style="margin-left:20px; margin-top: 20px; margin-bottom: 20px;"><img src="https://img.icons8.com/dusk/64/000000/pokemon.png"></span>
+
+                </li>
+                <div *ngIf="connecte">
+                    <li>
+                        <a >
+                              <i class="fa fa-user fa-2x"></i>
+                             <span class="nav-text">
+                                 {{currentUser.nom}}
+                             </span>
+                         </a>
+                     </li>  
+                    <li>
+                        <h5 style="color:white">
+                         Vos pokémons
+                        </h5>
+             
+                       
+                     </li>
+                     
+                     <li *ngFor="let p of equipe" class="has-subnav" >
+                         <a >
+                             <img class="fa-2x" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Pok%C3%A9_Ball_icon.svg/1200px-Pok%C3%A9_Ball_icon.svg.png" class="pokeball" >                        
+                             <span class="nav-text">
+                                 {{p.nom}}
+                             </span>
+                             <button (click)="removePokemon(p.idPokemon)" class="btn btn-danger">Retirer</button>
+                         </a>
+                         
+                     </li>
+                    </div>
+                    <div *ngIf="!connecte">
+                        <li>
+                            <h5 style="color:white">
+                             Vos pokémons
+                            </h5>
+            
+                           
+                         </li>
+                       <span style="color: azure; ">
+                        Connectez-vous pour ajouter vos pokémons
+                       </span>  
+                         
+                         <li  class="has-subnav" >
+                             <a routerLink="/login">
+                                 <img class="fa-2x" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Pok%C3%A9_Ball_icon.svg/1200px-Pok%C3%A9_Ball_icon.svg.png" class="pokeball" >                        
+                                 <span class="nav-text">
+                                     Connexion
+                                 </span>
+                             </a>
+                             
+                         </li>
+                            
+                         <li  class="has-subnav" >
+                            <a routerLink="/signup">
+                                <img class="fa-2x" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Pok%C3%A9_Ball_icon.svg/1200px-Pok%C3%A9_Ball_icon.svg.png" class="pokeball" >                        
+                                <span class="nav-text">
+                                    S'inscrire
+                                </span>
+                            </a>
+                            
+                        </li>
+                        </div>
+            
+        
+                
+            </ul>
+
+            <ul class="logout">
+                <li>
+                   <a href="#">
+                         <i class="fa fa-power-off fa-2x"></i>
+                        <span class="nav-text">
+                            Déconnexion
+                        </span>
+                    </a>
+                </li>  
+            </ul>
+        </nav>
+    </main>

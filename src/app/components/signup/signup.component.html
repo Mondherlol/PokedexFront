@@ -1,0 +1,29 @@
+<main>
+
+  
+    <form  class="login" [formGroup]="signUpFormGroup" (ngSubmit)="inscrire()">
+            <label class="text-muted" style="font-weight:bold">Inscription</label>
+        <input formControlName="username"  type="text" placeholder="Pseudo">
+        <div class="badge-danger"*ngIf="isInvalidPseudo()" >
+          Le pseudo est obligatoire
+          </div>
+          <div  class="badge-danger" *ngIf="isShortPseudo()" >
+            Le pseudo doit faire au moins 4 caractères
+            </div>
+        <input formControlName="password"  type="password" placeholder="Mot de passe">
+        <div class="badge-danger" *ngIf="isInvalidMdp()" >
+          Mot de passe obligatoire
+          </div>
+          <div class="badge-danger" *ngIf="isShortMdp()" >
+            Le Mot de passe doit faire au moins 3 caractères
+            </div>
+        <input formControlName="confirmPassword"  type="password" placeholder="Répetez le mot de passe">
+        <div class="badge-danger" *ngIf="signUpFormGroup.hasError('notSame')  && signUpFormGroup.controls['password'].dirty ">
+          Les mots de passe ne correspondent pas
+          </div>
+        <button [disabled]="signUpFormGroup.invalid" type="submit">Inscription</button>
+        <a>Vous avez déjà un compte ? <span routerLink="/login" style="text-decoration: underline; cursor: pointer; font-weight: bold;">Connectez-vous.</span> </a>
+      </form>
+    
+</main>
+

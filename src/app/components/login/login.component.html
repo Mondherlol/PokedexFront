@@ -1,0 +1,16 @@
+
+
+<main>
+
+    <form class="login" [formGroup]="loginFormGroup" (ngSubmit)="connexion()">
+        <label class="text-muted" style="font-weight:bold">Connexion</label>
+
+        <input  formControlName="username" type="text" placeholder="Pseudo">
+        <input formControlName="password" type="password" placeholder="Password">
+        <button [disabled]="loginFormGroup.invalid" type="submit">Login</button>
+        <a>Vous n'avez pas de compte ? <span routerLink="/signup" style="text-decoration: underline; cursor: pointer; font-weight: bold;">Inscrivez-vous</span> </a>
+      </form>
+    
+</main>
+
+

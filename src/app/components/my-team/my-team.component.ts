@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MdbModalRef } from 'mdb-angular-ui-kit/modal';
 
 @Component({
   selector: 'app-my-team',
@@ -7,8 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MyTeamComponent implements OnInit {
 
-  constructor() { }
-
+  constructor(public modalRef: MdbModalRef<MyTeamComponent>) {}
   ngOnInit(): void {
   }
 
