@@ -1,16 +1,130 @@
-<div class="modal-header">
-    <h5 class="modal-title" id="exampleModalLabel">Combat !!</h5>
-    <button
-      type="button"
-      class="btn-close"
-      aria-label="Close"
-      (click)="modalRef.close()"
-    ></button>
-  </div>
-  <div class="modal-body">...</div>
-  <div class="modal-footer">
-    <button type="button" class="btn btn-secondary" (click)="modalRef.close()">
-      Close
+
+
+  <main  style="border-radius: 5px; padding-bottom: 10px;">
+    <div id="app" class="container" >
+      <div class="container">
+        <div class="row">
+            <div class="col">
+        <div class="columns is-mobile">
+          <div class="pokemon column">
+            <div class="card has-text-weight-bold has-text-white card--blastoise" >
+              <div class="card-image">
+                <div class="card-image-container">
+                  <img src="{{pokemon.image}}"/>
+                </div>
+              </div>
+              <div class="card-content has-text-centered">
+                <div class="main">
+                  <div class="title has-text-white">{{ pokemon.name }}</div>
+                
+                  <span *ngFor="let t of pokemon.apiTypes" >
+                    <span class=" tagbox  {{t.name}}">
+                      <img    style="height: 20px!important;" height="20px" src="{{t.image}}">
+                      <p class=" type-white">{{t.name}}</p>
+                    </span>
+                   
+                </span>
+                </div>
+                <div class="stats columns is-mobile" style="font-weight:bold">
+                  <div class="column has-text-centered">{{ pokemon.stats.attack}}<br><span class="tag">Attaque</span></div>
+                  <div class="column has-text-centered center-column">{{ pokemon.stats.defense }} <br><span class="tag">Défense</span></div>
+                  <div class="column has-text-centered">{{ pokemon.stats.speed }}  <br><span class="tag">Vitesse</span></div>
+                </div>
+              </div>
+            </div>
+    
+     
+          </div>
+        </div>
+      </div>
+        <div class="col">
+          <div class="row" style="font-family: 'Courier New', Courier, monospace;">
+            <p class="title has-text-white" style=" font-family: Cinzel Decorative, sans-serif;
+            font-size: 25px;
+            margin-bottom: 1rem;
+            letter-spacing: 4px;">Résistance aux types :</p>
+            <div class="weak" *ngIf="twice_vulnerable.length!=0">
+            <p>
+              Super Faible    
+              <span *ngFor="let t of twice_vulnerable" >
+              <span  class=" tagbox  {{t.name}}">
+                <p class=" type-white ">{{t.name}}</p>
+              </span>
+              </span>
+            </p>
+            </div>
+            <div class="weak" *ngIf="vulnerable.length!=0">
+              <p> Faible    
+                <span *ngFor="let t of vulnerable" >
+                <span class=" tagbox  {{t.name}}">
+                  <p class=" type-white">{{t.name}}</p>
+                </span>
+                </span>
+              </p>
+              </div>
+              <div class="weak" *ngIf="neutral.length!=0">
+                <p> Neutre    
+                  <span *ngFor="let t of neutral" >
+                  <span  class=" tagbox  {{t.name}}">
+                    <p class=" type-white ">{{t.name}}</p>
+                  </span>
+                  </span>
+                </p>
+                </div>
+                <div class="weak" *ngIf="resistant.length!=0">
+                  <p> Résistant    
+                    <span *ngFor="let t of resistant" >
+                    <span  class=" tagbox  {{t.name}}">
+                      <p class=" type-white ">{{t.name}}</p>
+                    </span>
+                    </span>
+                  </p>
+                  </div>
+                  <div class="weak" *ngIf="twice_resistant.length!=0">
+                    <p> Super résistant    
+                      <span *ngFor="let t of twice_resistant" >
+                      <span class=" tagbox  {{t.name}}">
+                        <p class=" type-white">{{t.name}}</p>
+                      </span>
+                      </span>
+                    </p>
+                    </div>
+          </div>
+        </div>
+      </div>
+      </div>
+    
+    </div>
+    <div class="container">
+      <div class="row">
+        <p class="title has-text-white has-text-centered" style=" font-family: Cinzel Decorative, sans-serif;
+        font-size: 25px;
+        margin-bottom: 1rem;
+        letter-spacing: 4px;">Vos pokémons :</p>
+        <div *ngIf="charger && equipe.length==0">
+          <h2 class="has-text-centered has-text-white">Vous n'avez aucun Pokémon.</h2>
+        </div>
+        <div *ngIf="!charger">
+          <h4 class="has-text-centered has-text-white">Chargement en cours...</h4>
+          <img src="https://gifimage.net/wp-content/uploads/2018/10/3d-gif-png-.gif">
+        </div>
+ 
+        <div *ngFor="let p of equipe" class=" col-lg-4">
+          <div class="container"  >
+            <img  style="max-width: 120px" src="{{p.image}}">
+        <span style="max-width: 120px" style="color:white"> {{p.nom}}</span>    
+   
+        <span *ngFor="let t of p.type" >
+   
+            <img    style="height: 20px!important;" height="20px" src="{{t.image}}">
+          
+        </span>
+          </div>
+       
+        </div>
+      </div>
+    </div>
+    <button  (click)="modalRef.close()" class="BTN btn-light" style=" position: absolute; top: 5px; right: 5px; border-radius: 5px;">
+      <i class="fas fa-xmark"></i>
     </button>
-    <button type="button" class="btn btn-primary">Save changes</button>
-  </div>
+  </main>

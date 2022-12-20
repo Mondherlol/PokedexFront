@@ -29,17 +29,17 @@
           <img src="{{p.image}}" class="card-img-top" alt="...">
           <div class="card-body ">
             <h5 class="card-title">{{p.name}}</h5>
-  
+
               <span *ngFor="let t of p.apiTypes" >
                 <span class=" tagbox  {{t.name}}">
-                  <img   height="20px" src="{{t.image}}">
+                  <img  height="20px" src="{{t.image}}">
                   <p class=" type ">{{t.name}}</p>
                 </span>
                
             </span>
            <br>
-            <a (click)="fightPokemon()" class="btn btn-danger">Combattre</a>
-            <button  class="btn btn-primary" (click)="addPokemon(p)" >Ajouter à l'équipe</button>
+            <a (click)="fightPokemon(p)" class="btn btn-danger">Combattre</a>
+            <button  style="position: absolute; top: -2px; right: 0px;" class="btn btn-primary" (click)="addPokemon(p)" > <i class="fas fa-plus"></i></button>
 
             
           </div>

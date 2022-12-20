@@ -24,7 +24,6 @@ export class HomeComponent implements OnInit {
   pokemons2:any;
   search:String="";
   saisie:String="";
-  equipe: Array<any>;
   modalRef: MdbModalRef<MyTeamComponent> | null = null;
   modalCombat: MdbModalRef<FightModalComponent> | null = null;
   @ViewChild(SidebarComponent) child:SidebarComponent;
@@ -56,11 +55,10 @@ export class HomeComponent implements OnInit {
     }
     this.pokemons=[];
     this.getPokemons();
-    this.equipe= new Array<any>();
 
   }
   public getPokemons(){
-    this.http.get('https://pokebuildapi.fr/api/v1/pokemon').subscribe((data:any)=>{
+    this.http.get('https://pokebuildapi.fr/api/v1/pokemon/').subscribe((data:any)=>{
       this.pokemons = data;
       console.log(this.pokemons);
       this.pokemons2=this.pokemons;
@@ -126,8 +124,14 @@ export class HomeComponent implements OnInit {
     // }
 
   }
-  fightPokemon(){
-    this.modalCombat = this.modalService.open(FightModalComponent);
+  fightPokemon(p:any){
+    this.modalCombat = this.modalService.open(FightModalComponent, 
+      {
+        modalClass: 'modal-xl',
+        data:{
+          pokemon:p
+        }
+      });
 
   }
 

@@ -11,10 +11,7 @@ import { UserService } from 'src/app/user.service';
 export class SidebarComponent implements OnInit {
   connecte:Boolean=false;
   currentUser:any;
-  pokemons:any[]=[
-    {"nom":"Pikachu","idPokemon":0},
-    {"nom":"Héricendre","idPokemon":1}
-  ]
+  charger:Boolean=false;
   equipe:any[] =[];
 
   constructor(
@@ -34,6 +31,7 @@ export class SidebarComponent implements OnInit {
       this.connecte=true;
       this.userService.getEquipe(this.currentUser._id).subscribe(e=>{
         this.equipe=e;
+        this.charger=true;
       })
       // this.equipe=JSON.parse(localStorage.getItem('pokemons') || '{}');
       // console.log(this.equipe[0]);
