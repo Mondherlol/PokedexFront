@@ -60,7 +60,7 @@ export class HomeComponent implements OnInit {
 
   }
   public getPokemons(){
-    this.http.get('https://pokebuildapi.fr/api/v1/pokemon/limit/10').subscribe((data:any)=>{
+    this.http.get('https://pokebuildapi.fr/api/v1/pokemon').subscribe((data:any)=>{
       this.pokemons = data;
       console.log(this.pokemons);
       this.pokemons2=this.pokemons;
