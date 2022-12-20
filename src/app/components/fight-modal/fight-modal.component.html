@@ -104,9 +104,12 @@
         <div *ngIf="charger && equipe.length==0">
           <h2 class="has-text-centered has-text-white">Vous n'avez aucun Pokémon.</h2>
         </div>
-        <div *ngIf="!charger">
+        <div *ngIf="!charger && connecte">
           <h4 class="has-text-centered has-text-white">Chargement en cours...</h4>
           <img src="https://gifimage.net/wp-content/uploads/2018/10/3d-gif-png-.gif">
+        </div>
+        <div *ngIf="!connecte">
+          <h2 class="has-text-centered has-text-white">Connectez-vous pour ajouter vos pokémons.</h2>
         </div>
  
         <div *ngFor="let p of equipe" class=" col-lg-4">
