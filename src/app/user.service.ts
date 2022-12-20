@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class UserService {
   // private baseUrl = "http://localhost:3000/api/";
-  private baseUrl = "https://pokemonapi-5mr3.onrender.com/";
+  private baseUrl = "https://pokemonapi-5mr3.onrender.com/api/";
 
   constructor(private http: HttpClient) { }
 
