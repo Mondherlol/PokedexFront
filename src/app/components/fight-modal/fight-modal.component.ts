@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MdbModalRef } from 'mdb-angular-ui-kit/modal';
+import { PokemonFightService } from 'src/app/pokemon-fight.service';
 import { UserService } from 'src/app/user.service';
 
 @Component({
@@ -22,7 +23,7 @@ export class FightModalComponent implements OnInit {
 
   equipe:any[] =[];
 
-  constructor(public modalRef: MdbModalRef<FightModalComponent>, private userService: UserService) {}
+  constructor(public modalRef: MdbModalRef<FightModalComponent>, private userService: UserService, private fightService : PokemonFightService) {}
 
   ngOnInit(): void {
     this.pokemon.apiResistances.forEach((r: any) => {
@@ -64,5 +65,51 @@ export class FightModalComponent implements OnInit {
 
     }
   }
+  fight(){
+    let stock:any[]=[];
+    let s:string="";
+    //Ajouter les types de l'équipe
+    this.equipe.forEach(p => {
+      s="";
+      p.type.forEach((t: { name: string; }) => {
+        s=s+","+ this.preventNameError(t.name);
+      });
+      s=s.substring(1);
+      stock.push(s);
+    });
+    while(stock.length!=6){
+      stock.push("x");
+    };
 
+    //Ajouter les types du pokémon adversaire
+    s="";
+    this.pokemon.apiTypes.forEach((t: { name: string; }) => {
+      s=s+","+ this.preventNameError(t.name);
+    });
+    s=s.substring(1);
+    stock.push(s);
+    
+    let poke =   {
+      "Poke1":stock[0],
+      "Poke2":stock[1],
+      "Poke3":stock[2],
+      "Poke4":stock[3],
+      "Poke5":stock[4],
+      "Poke6":stock[5],
+      "Adv":stock[6]
+  }
+  console.log(poke);
+  this.fightService.fight(poke).subscribe(
+    (res)=>{
+      console.log("res");
+    }
+  )
+  }
+  preventNameError(t:string){
+    t=t.toLowerCase();
+    if(t=="électrik")  t="electrik";
+    if(t=="fée") t="fee";
+    if(t=="ténèbres") t="tenebres";
+    return t;
+  }
 }

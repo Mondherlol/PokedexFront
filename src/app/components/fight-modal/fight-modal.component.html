@@ -114,14 +114,18 @@
  
         <div *ngFor="let p of equipe" class=" col-lg-4">
           <div class="container"  >
+       
             <img  style="max-width: 120px" src="{{p.image}}">
+         
         <span style="max-width: 120px" style="color:white"> {{p.nom}}</span>    
-   
+  
         <span *ngFor="let t of p.type" >
    
             <img    style="height: 20px!important;" height="20px" src="{{t.image}}">
           
         </span>
+        <br>
+        <span class="has-text-centered has-text-white" style="font-weight: bold;">Super efficace !</span>
           </div>
        
         </div>
@@ -130,4 +134,6 @@
     <button  (click)="modalRef.close()" class="BTN btn-light" style=" position: absolute; top: 5px; right: 5px; border-radius: 5px;">
       <i class="fas fa-xmark"></i>
     </button>
+
+    <button class="btn btn-primary" (click)="fight()" >Fight !</button>
   </main>
